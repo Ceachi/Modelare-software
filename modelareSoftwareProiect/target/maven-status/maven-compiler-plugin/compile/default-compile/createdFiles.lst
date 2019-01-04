@@ -1,0 +1,17 @@
+com\itinerar\SwaggerConfiguration.class
+com\itinerar\ItinerarApplication.class
+com\itinerar\models\parkingSlot\Obstacle.class
+com\itinerar\models\parkingSpace\ParkingSpace.class
+com\itinerar\exception\ExceptionResponse.class
+com\itinerar\models\parkingSpace\ParkingSpaceBuilder.class
+com\itinerar\exception\CustomizedResponseEntityExceptionHandler.class
+com\itinerar\models\parkingSlot\LargeSpot.class
+com\itinerar\models\vehicle\MotorCycle.class
+com\itinerar\models\vehicle\Vehicle.class
+com\itinerar\models\vehicle\Bus.class
+com\itinerar\exception\EntityNotFoundException.class
+com\itinerar\models\parkingSlot\ParkingSlotType.class
+com\itinerar\models\parkingSlot\ParkingSlot.class
+com\itinerar\exception\RowNotFoundException.class
+com\itinerar\models\parkingSlot\SmallSpot.class
+com\itinerar\models\vehicle\Car.class
