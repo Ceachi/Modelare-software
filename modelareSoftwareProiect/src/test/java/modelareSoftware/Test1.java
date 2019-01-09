@@ -26,6 +26,7 @@ import com.itinerar.models.parkingSlot.ParkingSlotComplex;
 import com.itinerar.models.parkingSlot.SmallSpot;
 import com.itinerar.models.parkingSpace.ParkingSpace;
 import com.itinerar.models.parkingSpace.ParkingSpaceBuilder;
+import com.itinerar.models.parkingSpace.ParkingSpaceType;
 import com.itinerar.models.ticket.Ticket;
 import com.itinerar.models.vehicle.Car;
 import com.itinerar.models.vehicle.Vehicle;
@@ -229,7 +230,7 @@ public class Test1 {
 		parkingSlotMap.put(1, row1ParkingSlot);
 
 		ParkingSpace parkingSpace = new ParkingSpaceBuilder().setFloorNumber(1).setParkingName("AFI Cotroceni")
-				.setParkingSlotMap(parkingSlotMap).setParkingSpaceType("DREPTUNGHIULAR").build();
+				.setParkingSlotMap(parkingSlotMap).setParkingSpaceType(ParkingSpaceType.DREPTUNGHIULAR).build();
 		
 		return parkingSpace;
 	}

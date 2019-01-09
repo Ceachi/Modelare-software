@@ -10,7 +10,7 @@ public class ParkingSpaceBuilder {
 	private String parkingName;
 	private int floorNumber;
 	private Map<Integer, List<ParkingSlot>> parkingSlotMap;
-	private String parkingSpaceType;
+	private ParkingSpaceType parkingSpaceType;
 	
 	public ParkingSpaceBuilder setParkingName(String parkingName) {
 		this.parkingName = parkingName;
@@ -28,7 +28,7 @@ public class ParkingSpaceBuilder {
 		return this;
 	}
 
-	public ParkingSpaceBuilder setParkingSpaceType(String parkingSpaceType) {
+	public ParkingSpaceBuilder setParkingSpaceType(ParkingSpaceType parkingSpaceType) {
 		this.parkingSpaceType = parkingSpaceType;
 		return this;
 	}

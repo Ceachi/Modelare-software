@@ -17,6 +17,7 @@ import com.itinerar.models.parkingSlot.ParkingSlotComplex;
 import com.itinerar.models.parkingSlot.SmallSpot;
 import com.itinerar.models.parkingSpace.ParkingSpace;
 import com.itinerar.models.parkingSpace.ParkingSpaceBuilder;
+import com.itinerar.models.parkingSpace.ParkingSpaceType;
 import com.itinerar.models.vehicle.Car;
 import com.itinerar.models.vehicle.Vehicle;
 
@@ -37,7 +38,7 @@ public class ParkingSpaceTest {
 
 		// and now we use Builder Pattern to create a ParkingSpace
 		ParkingSpace parkingSpace = new ParkingSpaceBuilder().setFloorNumber(1).setParkingName("AFI Cotroceni")
-				.setParkingSlotMap(parkingSlotMap).setParkingSpaceType("DREPTUNGHIULAR").build();
+				.setParkingSlotMap(parkingSlotMap).setParkingSpaceType(ParkingSpaceType.DREPTUNGHIULAR).build();
 
 		// client simulation for parking
 		int vehicleDimension = 1;
@@ -61,7 +62,7 @@ public class ParkingSpaceTest {
 		parkingSlotMap.put(1, row1ParkingSlot);
 
 		ParkingSpace parkingSpace = new ParkingSpaceBuilder().setFloorNumber(1).setParkingName("AFI Cotroceni")
-				.setParkingSlotMap(parkingSlotMap).setParkingSpaceType("DREPTUNGHIULAR").build();
+				.setParkingSlotMap(parkingSlotMap).setParkingSpaceType(ParkingSpaceType.DREPTUNGHIULAR).build();
 
 		// client simulation for parking
 		Vehicle car = new Car(1, null, null, null, 2);
@@ -86,7 +87,7 @@ public class ParkingSpaceTest {
 		parkingSlotMap.put(1, row1ParkingSlot);
 
 		ParkingSpace parkingSpace = new ParkingSpaceBuilder().setFloorNumber(1).setParkingName("AFI Cotroceni")
-				.setParkingSlotMap(parkingSlotMap).setParkingSpaceType("DREPTUNGHIULAR").build();
+				.setParkingSlotMap(parkingSlotMap).setParkingSpaceType(ParkingSpaceType.DREPTUNGHIULAR).build();
 
 		Vehicle car = new Car(1, null, null, null, 5);
 		boolean canPark = requestToPark(car, parkingSpace);

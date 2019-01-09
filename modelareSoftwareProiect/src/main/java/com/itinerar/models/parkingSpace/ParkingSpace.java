@@ -12,7 +12,7 @@ public class ParkingSpace {
 	private String parkingName;
 	private int floorNumber;
 	private Map<Integer, List<ParkingSlot>> parkingSlotMap;
-	private String parkingSpaceType;
+	private ParkingSpaceType parkingSpaceType;
 	
 	
 	
@@ -21,7 +21,7 @@ public class ParkingSpace {
 	}
 
 	public ParkingSpace(String parkingName, int floorNumber, Map<Integer, List<ParkingSlot>> parkingSlotMap,
-			String parkingSpaceType) {
+			ParkingSpaceType parkingSpaceType) {
 		super();
 		this.parkingName = parkingName;
 		this.floorNumber = floorNumber;
@@ -30,6 +30,15 @@ public class ParkingSpace {
 	}
 
 	public void addParkingSlot(int rowNumber, ParkingSlot parkingSlot) {
+		ParkingSpaceType parkingSpacetype = this.getParkingSpaceType();
+		ParkingSpaceType DREPTUNGHIULAR = ParkingSpaceType.DREPTUNGHIULAR;
+		ParkingSpaceType CIRCLE = ParkingSpaceType.DREPTUNGHIULAR;
+		ParkingSpaceType SQUARE = ParkingSpaceType.SQUARE;
+		if(parkingSpacetype.equals(DREPTUNGHIULAR) && (rowNumber >= 1 && rowNumber <= 2)) {
+				throw new RowNotFoundException("row not found");
+		}else if(parkingSpacetype.equals(CIRCLE) && (rowNumber != 1) ) {
+				throw new RowNotFoundException("row not found");
+		}
 		if((rowNumber >= 1 && rowNumber <= 2)) 
 			throw new RowNotFoundException("row not found");
 		
@@ -78,53 +87,15 @@ public class ParkingSpace {
 		this.parkingSlotMap = parkingSlotMap;
 	}
 
-	public String getParkingSpaceType() {
+	public ParkingSpaceType getParkingSpaceType() {
 		return parkingSpaceType;
 	}
 
-	public void setParkingSpaceType(String parkingSpaceType) {
+	public void setParkingSpaceType(ParkingSpaceType parkingSpaceType) {
 		this.parkingSpaceType = parkingSpaceType;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + floorNumber;
-		result = prime * result + ((parkingName == null) ? 0 : parkingName.hashCode());
-		result = prime * result + ((parkingSlotMap == null) ? 0 : parkingSlotMap.hashCode());
-		result = prime * result + ((parkingSpaceType == null) ? 0 : parkingSpaceType.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		ParkingSpace other = (ParkingSpace) obj;
-		if (floorNumber != other.floorNumber)
-			return false;
-		if (parkingName == null) {
-			if (other.parkingName != null)
-				return false;
-		} else if (!parkingName.equals(other.parkingName))
-			return false;
-		if (parkingSlotMap == null) {
-			if (other.parkingSlotMap != null)
-				return false;
-		} else if (!parkingSlotMap.equals(other.parkingSlotMap))
-			return false;
-		if (parkingSpaceType == null) {
-			if (other.parkingSpaceType != null)
-				return false;
-		} else if (!parkingSpaceType.equals(other.parkingSpaceType))
-			return false;
-		return true;
-	}
+	
 
 	@Override
 	public String toString() {
