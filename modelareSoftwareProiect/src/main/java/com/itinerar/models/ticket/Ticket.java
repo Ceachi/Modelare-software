@@ -59,8 +59,8 @@ public class Ticket {
 	}
 	@Override
 	public String toString() {
-		return "Ticket [vehicle=" + vehicle + ", parkingSlot=" + parkingSlot + ", parkingSlotComplex="
-				+ parkingSlotComplex + ", parkingSpace=" + parkingSpace + ", paid=" + paid + ", money=" + money + "]";
+		return "Ticketul Clientului {" + "\n" + "vehiculul parcat = " + vehicle + "\n"+ "Pe un parkingSlot=" + parkingSlot + "\n"+ "parkingSlotComplex="
+				+ parkingSlotComplex + "\n"+ "a platit parcarea? = " + paid + "\n" + "aceasta costa = " + money + "\n" + "}";
 	}
 	
 	

@@ -23,20 +23,25 @@ import com.itinerar.models.vehicle.Vehicle;
 public class ParkingSpaceTest {
 
 	@Test
+	// testing using ParkingSpace only with SmallSpots
 	public void testingOnlyWithSmallSpots() {
-		// creating the parkingSpace
+		// creating the parkingSpace with only 1 row
 		Map<Integer, List<ParkingSlot>> parkingSlotMap = new HashMap<>();
 		List<ParkingSlot> row1ParkingSlot = new ArrayList<>();
+		// first we create the row with some parkingSpots
 		for (int i = 0; i <= 5; i++) {
 			row1ParkingSlot.add(new ParkingSlot(i, new SmallSpot(), "small Spot", null, 2, true));
 		}
+		// then we add the list with ParkingSlots into the Map
 		parkingSlotMap.put(1, row1ParkingSlot);
 
+		// and now we use Builder Pattern to create a ParkingSpace
 		ParkingSpace parkingSpace = new ParkingSpaceBuilder().setFloorNumber(1).setParkingName("AFI Cotroceni")
 				.setParkingSlotMap(parkingSlotMap).setParkingSpaceType("DREPTUNGHIULAR").build();
 
 		// client simulation for parking
-		Vehicle car = new Car(1, null, null, null, 1);
+		int vehicleDimension = 1;
+		Vehicle car = new Car(1, null, null, null, vehicleDimension);
 		boolean canPark = requestToPark(car, parkingSpace);
 		System.out.println("Can the client park?");
 		System.out.println(canPark);

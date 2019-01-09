@@ -9,8 +9,6 @@ import java.util.Map;
 
 import javax.transaction.Transactional;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -25,7 +23,6 @@ import com.itinerar.models.vehicle.Vehicle;
 @SpringBootApplication
 public class ItinerarApplication implements CommandLineRunner {
 
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 
 	public static void main(String[] args) {
@@ -35,7 +32,7 @@ public class ItinerarApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

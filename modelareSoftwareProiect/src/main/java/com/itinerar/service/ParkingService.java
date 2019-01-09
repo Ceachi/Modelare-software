@@ -1,4 +1,4 @@
-package com.itinerar.controller;
+package com.itinerar.service;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -13,15 +13,21 @@ import com.itinerar.models.parkingSpace.*;
 import com.itinerar.models.ticket.Ticket;
 import com.itinerar.models.vehicle.Vehicle;;
 
-@Component
 public class ParkingService {
+	
+	private static ParkingService instance; // for singleton
 
 	public List<ParkingSpace> parkingSpaceList;
 	
-	
-
-	public ParkingService() {
+	private ParkingService() {
 		this.parkingSpaceList = new ArrayList<>();
+	}
+	
+	public static synchronized ParkingService getInstance() {
+		if(instance == null) {
+			instance = new ParkingService();
+		}
+		return instance;
 	}
 
 	public Ticket requestToPark(Vehicle vehicle) {
@@ -35,18 +41,27 @@ public class ParkingService {
 		}
 		Ticket ticket = new Ticket();// creem tichetul
 
-		if (complexSlot != null) {
-			int money = 10 * complexSlot.getDimension();
+		if (complexSlot != null) {// am gasit un complexSlot in complexSpace
+			int money = 10 * complexSlot.getDimension(); // calculam pretul parcarii
+			// park the vehicle in the parkingSpace
+			parkVehicleInComplexSlot(vehicle, complexSlot);
 			ticket.setMoney(money).setPaid(false).setParkingSlotComplex(complexSlot).setVehicle(vehicle)
 					.setParkingSpace(parkingSpace);
 			return ticket;
 		} else if (parkingSlot != null) {
 			int money = 10 * parkingSlot.getDimension(); // TO DO: adauga un sistem de placa cu pricePerHour
-			ticket.setMoney(money).setPaid(false).setParkingSlotComplex(complexSlot).setVehicle(vehicle)
+			ticket.setMoney(money).setPaid(false).setParkingSlot(parkingSlot).setVehicle(vehicle)
 					.setParkingSpace(parkingSpace);
 			return ticket;
 		}
 		return ticket;
+	}
+	
+	public void parkVehicleInComplexSlot(Vehicle vehicle, ParkingSlotComplex complexSlot) {
+		for(ParkingSlot index : complexSlot.getComplexSlot()) { // pentru fiecare slot gasit in ParkingSlot
+			index.setVehicle(vehicle);
+			index.setAvailability(true);
+		}
 	}
 
 	public Ticket freeSpot(Ticket ticket, int money) {

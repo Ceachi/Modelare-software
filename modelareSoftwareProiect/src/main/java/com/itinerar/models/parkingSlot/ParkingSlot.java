@@ -102,8 +102,8 @@ public class ParkingSlot {
 
 	@Override
 	public String toString() {
-		return "ParkingSlot [id=" + id + ", parkingSlotType=" + parkingSlotType + ", description=" + description
-				+ ", vehicle=" + vehicle + ", pricePerHour=" + pricePerHour + ", availability=" + availability + "]";
+		return "\n"+"ParkingSlot: {" + "[id=" + id + "\n"+"parkingSlotType=" + parkingSlotType +"\n"+ "description=" + description+"\n"
+				+ "vehicle=" + vehicle +"\n" + "pricePerHour=" + pricePerHour + "\n"+ "availability=" + availability + "\n" + "} \n";
 	}
 
 
