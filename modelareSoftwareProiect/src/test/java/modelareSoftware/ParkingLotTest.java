@@ -34,11 +34,12 @@ import com.itinerar.service.ParkingService;
 
 @RunWith( SpringJUnit4ClassRunner.class )
 @ContextConfiguration
-public class Test1 {
+public class ParkingLotTest {
 	
 	ParkingServiceController parkingController = ParkingServiceController.getInstance();
 	ParkingService parkingService = ParkingService.getInstance();
-	String fileName = "E:\\Bogdan\\Facultate\\Modelare software\\Proiect\\Modelare-software\\modelareSoftwareProiect\\Output.txt";
+	//String fileName = "E:\\Bogdan\\Facultate\\Modelare software\\Proiect\\Modelare-software\\modelareSoftwareProiect\\Output.txt";
+	String fileName = "Output.txt";
 	@Test
 	public void createParkingSpace() throws IOException {
 		PrintStream out = printToFile();

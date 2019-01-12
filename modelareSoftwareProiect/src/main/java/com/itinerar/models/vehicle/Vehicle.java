@@ -4,7 +4,7 @@ import com.itinerar.models.parkingSlot.ParkingSlot;
 /*
  * TO DO: sa stabilesti de la inceput care este dimensiunea fiecarui vehicul
  */
-public class Vehicle {
+public abstract class Vehicle {
 	public int id;
 	public final String number;
 	public final String company;
@@ -23,13 +23,7 @@ public class Vehicle {
 		this.dimensionSpotNeeded = dimensionSpotNeeded;
 	}
 
-	public boolean canFit(ParkingSlot parkingSlot) {
-		int dimension = parkingSlot.getParkingSlotType().getDimension();
-		if(dimension - dimensionSpotNeeded == 0) {
-			return true;
-		}
-		return false;
-	}
+	public abstract boolean canFit(ParkingSlot parkingSlot);
 
 	public int getId() {
 		return id;
